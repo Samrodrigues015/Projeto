@@ -35,8 +35,8 @@ Um portfolio moderno, interativo e responsivo construído com Next.js e Tailwind
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/portfolio-multilingue.git
-cd portfolio-multilingue
+git clone https://github.com/Samrodrigues015/Projeto.git
+cd projeto
 ```
 
 2. Instale as dependências:
@@ -140,6 +140,6 @@ type Language = "en" | "pt" | "es";
 
 ## 👤 Autor
 
-Leo Santander Nycz
+Samara Rodrigues
 
 Feito com ❤️ e React
