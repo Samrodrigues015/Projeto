@@ -33,26 +33,26 @@ export default function Projects() {
       setProjects([
         {
           id: 1,
-          name: language === "en" ? "Fokus App" : "Aplicativo Fokus",
+          name: language === "en" ? "Multitech Theme" : "Tema Multitech",
           description:
             language === "en"
-              ? "An app to manage your focus and optimize your productivity, simulating the pomodoro method."
-              : "Um app para gerenciar seu foco e otimizar a sua produtividade, simulando o método pomodoro.",
+              ? "A custom WordPress theme developed with PHP, HTML, CSS and JavaScript. Responsive, optimized for SEO and easy to customize."
+              : "Um tema personalizado para WordPress, desenvolvido com PHP, HTML, CSS e JavaScript. Responsivo, otimizado para SEO e fácil de personalizar.",
           image: "/multitech.png?height=300&width=500",
           technologies: ["PHP", "JavaScript", "HTML", "CSS"],
-          github: "https://github.com/Samrodrigues015/Multimac-Portifolio",
+          github: "https://github.com/Samrodrigues015/ProjetoMultimac.git",
           demo: "https://multitech-portifolio.netlify.app/",
         },
         {
           id: 2,
-          name: language === "en" ? "Order App" : "Aplicativo de Orçamento",
+          name: language === "en" ? "DualTech Theme" : "Tema DualTech",
           description:
             language === "en"
-              ? "A quotation application, with automatic date updating, print output and duplicate writing simultaneously for the customer's path."
-              : "Um aplicativo de orçamento, com atualização automática de data, saída para impressão e com escrita duplicada simultaneamente para via do cliente.",
+              ? "A modern and responsive WordPress theme created for DualTech, using PHP, HTML, CSS and JavaScript. Built with a clean structure and focus on performance."
+              : "Um tema moderno e responsivo para WordPress, criado para a DualTech com PHP, HTML, CSS e JavaScript. Construído com estrutura limpa e foco em performance.",
           image: "/dualtech.png?height=300&width=500",
           technologies: ["PHP", "JavaScript", "HTML", "CSS"],
-          github: "https://github.com/Samrodrigues015/Dualinfor-Portifolio",
+          github: "https://github.com/Samrodrigues015/Dualinfor.git",
           demo: "https://dualtech.netlify.app/",
         },
       ]);
