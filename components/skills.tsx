@@ -94,8 +94,12 @@ export default function Skills() {
                   .map((skill, index) => (
                     <motion.div key={index} variants={item}>
                       <div className="flex justify-between mb-1">
-                        <span className="text-zinc-100 font-serif">{skill.name}</span>
-                        <span className="text-yellow-300 font-semibold">{skill.level}%</span>
+                        <span className="text-zinc-100 font-serif">
+                          {skill.name}
+                        </span>
+                        <span className="text-yellow-300 font-semibold">
+                          {skill.level}%
+                        </span>
                       </div>
                       <div className="w-full bg-zinc-800/70 rounded-full h-4 relative overflow-hidden shadow-inner border border-yellow-900">
                         <motion.div
@@ -103,7 +107,10 @@ export default function Skills() {
                           animate={
                             inView ? { width: `${skill.level}%` } : { width: 0 }
                           }
-                          transition={{ duration: 1.2, delay: 0.2 + index * 0.1 }}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.2 + index * 0.1,
+                          }}
                           className="h-4 rounded-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-300 shadow-[0_0_8px_#FFD70080] relative"
                         >
                           {/* Brilho discreto no final da barra */}
