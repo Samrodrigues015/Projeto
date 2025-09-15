@@ -27,13 +27,13 @@ const translations = {
 
     // Hero
     "hero.title": "Hi, I'm",
-    "hero.role": "Full Stack Developer",
+    "hero.role": "Front-end Developer",
 
     // About
     "about.title": "About Me",
-    "about.role": "Full Stack Developer",
+    "about.role": "Front-end Developer",
     "about.description1":
-      "I'm a passionate Full Stack Developer with expertise in building modern web applications. With a strong foundation in both frontend and backend technologies, I create seamless, user-friendly experiences that solve real-world problems.",
+      "I'm a passionate Front-end Developer with expertise in building modern web applications. With a strong foundation in both frontend and backend technologies, I create seamless, user-friendly experiences that solve real-world problems.",
     "about.description2":
       "My journey in software development has equipped me with a diverse skill set and the ability to adapt to new technologies quickly. I'm committed to writing clean, maintainable code and constantly improving my craft.",
     "about.name": "Name:",
@@ -83,21 +83,21 @@ const translations = {
     "nav.about": "Sobre",
     "nav.projects": "Projetos",
     "nav.skills": "Habilidades",
-    "nav.contact": "Contato",
+    "nav.contact": "contacto",
 
     // Hero
     "hero.title": "Olá, eu sou",
-    "hero.role": "Desenvolvedora Full Stack",
+    "hero.role": "Desenvolvedora Front-end",
 
-   // About
-"about.title": "Sobre Mim",
-"about.role": "Desenvolvedora Web Full Stack",
-"about.description1":
-  "Sou Desenvolvedora Web Full Stack Júnior com experiência em projetos reais, desde sites responsivos até aplicações completas. Tenho uma base sólida em JavaScript, Node.js, PHP e Java, além de domínio em metodologias ágeis como Scrum e Kanban.",
-"about.description2":
-  "Atualmente, atuo tanto como freelancer no desenvolvimento de sites personalizados quanto em projetos com foco em front-end e UI/UX, utilizando WordPress, HTML, CSS e PHP. Também já liderei equipes de estagiários em iniciativas internas, participando de todo o ciclo de desenvolvimento.",
-"about.description3":
-  "Sou apaixonada por tecnologia e por criar soluções que unam design, performance e experiência do usuário. Busco sempre aprender novas ferramentas, colaborar em equipe e transformar ideias em produtos digitais que gerem impacto real.",
+    // About
+    "about.title": "Sobre Mim",
+    "about.role": "Desenvolvedora Web Front-end",
+    "about.description1":
+      "Sou Desenvolvedora Web Front-end Júnior com experiência em projetos reais, desde sites responsivos até aplicações completas. Tenho uma base sólida em JavaScript, Node.js, PHP e Java, além de domínio em metodologias ágeis como Scrum e Kanban.",
+    "about.description2":
+      "Atualmente, atuo tanto como freelancer no desenvolvimento de sites personalizados quanto em projetos com foco em front-end e UI/UX, utilizando WordPress, HTML, CSS e PHP. Também já liderei equipes de estagiários em iniciativas internas, participando de todo o ciclo de desenvolvimento.",
+    "about.description3":
+      "Sou apaixonada por tecnologia e por criar soluções que unam design, performance e experiência do usuário. Busco sempre aprender novas ferramentas, colaborar em equipe e transformar ideias em produtos digitais que gerem impacto real.",
     "about.name": "Nome:",
     "about.email": "Email:",
     "about.location": "Localização:",
@@ -119,10 +119,10 @@ const translations = {
     "skills.tools": "Ferramentas & DevOps",
 
     // Contact
-    "contact.title": "Entre em Contato",
+    "contact.title": "Entre em contacto",
     "contact.subtitle":
-      "Tem um projeto em mente ou quer colaborar? Sinta-se à vontade para entrar em contato!",
-    "contact.info": "Informações de Contato",
+      "Tem um projeto em mente ou quer colaborar? Sinta-se à vontade para entrar em contacto!",
+    "contact.info": "Informações de contacto",
     "contact.location": "Localização",
     "contact.email": "Email",
     "contact.phone": "Telefone",
@@ -134,7 +134,7 @@ const translations = {
     "contact.sending": "Enviando...",
     "contact.send": "Enviar Mensagem",
     "contact.success":
-      "Obrigado pela sua mensagem! Entrarei em contato o mais breve possível.",
+      "Obrigado pela sua mensagem! Entrarei em contacto o mais breve possível.",
 
     // Footer
     "footer.rights": "Todos os direitos reservados.",

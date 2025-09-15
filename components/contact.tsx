@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -55,7 +54,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-zinc-800">
+    <section id="contact" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -64,11 +63,11 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white font-serif">
             {t("contact.title")}
           </h2>
-          <div className="w-20 h-1 bg-violet-400 mx-auto mb-6"></div>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6 rounded-full shadow-yellow-400 shadow-md"></div>
+          <p className="text-zinc-300 max-w-2xl mx-auto font-light">
             {t("contact.subtitle")}
           </p>
         </motion.div>
@@ -78,15 +77,18 @@ export default function Contact() {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-br from-zinc-900 via-black to-zinc-800/80 rounded-2xl p-8 border border-yellow-900 shadow-2xl"
           >
-            <h3 className="text-2xl font-semibold mb-6">{t("contact.info")}</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-yellow-400 font-serif">
+              {t("contact.info")}
+            </h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="bg-zinc-700 p-3 rounded-lg mr-4">
-                  <MapPin className="w-5 h-5 text-violet-400" />
+                <div className="bg-black/60 p-3 rounded-lg mr-4 border border-yellow-900">
+                  <MapPin className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">
+                  <h4 className="text-lg font-medium text-white">
                     {t("contact.location")}
                   </h4>
                   <p className="text-zinc-400">Porto - Portugal</p>
@@ -94,11 +96,13 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="bg-zinc-700 p-3 rounded-lg mr-4">
-                  <Mail className="w-5 h-5 text-violet-400" />
+                <div className="bg-black/60 p-3 rounded-lg mr-4 border border-yellow-900">
+                  <Mail className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">{t("contact.email")}</h4>
+                  <h4 className="text-lg font-medium text-white">
+                    {t("contact.email")}
+                  </h4>
                   <p className="text-zinc-400">
                     samararodrigues2000@icloud.com
                   </p>
@@ -106,11 +110,13 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="bg-zinc-700 p-3 rounded-lg mr-4">
-                  <Phone className="w-5 h-5 text-violet-400" />
+                <div className="bg-black/60 p-3 rounded-lg mr-4 border border-yellow-900">
+                  <Phone className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">{t("contact.phone")}</h4>
+                  <h4 className="text-lg font-medium text-white">
+                    {t("contact.phone")}
+                  </h4>
                   <p className="text-zinc-400">+351 913 963 455</p>
                 </div>
               </div>
@@ -121,12 +127,13 @@ export default function Contact() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-gradient-to-br from-zinc-900 via-black to-zinc-800/80 rounded-2xl p-8 border border-yellow-900 shadow-2xl"
           >
-            <h3 className="text-2xl font-semibold mb-6">
+            <h3 className="text-2xl font-semibold mb-6 text-yellow-400 font-serif">
               {t("contact.message")}
             </h3>
             {submitSuccess ? (
-              <div className="bg-violet-400/20 border border-violet-400 text-violet-400 p-4 rounded-lg">
+              <div className="bg-yellow-400/20 border border-yellow-400 text-yellow-300 p-4 rounded-lg text-center font-medium">
                 {t("contact.success")}
               </div>
             ) : (
@@ -140,7 +147,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-zinc-700 border-zinc-600 text-zinc-100 placeholder:text-zinc-400"
+                      className="bg-black/60 border-yellow-900 text-zinc-100 placeholder:text-zinc-400 rounded-lg"
                     />
                   </div>
                   <div>
@@ -151,7 +158,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-zinc-700 border-zinc-600 text-zinc-100 placeholder:text-zinc-400"
+                      className="bg-black/60 border-yellow-900 text-zinc-100 placeholder:text-zinc-400 rounded-lg"
                     />
                   </div>
                 </div>
@@ -163,7 +170,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="bg-zinc-700 border-zinc-600 text-zinc-100 placeholder:text-zinc-400"
+                    className="bg-black/60 border-yellow-900 text-zinc-100 placeholder:text-zinc-400 rounded-lg"
                   />
                 </div>
                 <div>
@@ -173,7 +180,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="bg-zinc-700 border-zinc-600 text-zinc-100 placeholder:text-zinc-400 min-h-[150px]"
+                    className="bg-black/60 border-yellow-900 text-zinc-100 placeholder:text-zinc-400 min-h-[150px] rounded-lg"
                   />
                 </div>
                 {submitError && (
@@ -182,11 +189,11 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-violet-500 hover:bg-violet-600 text-white w-full"
+                  className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-300 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold w-full rounded-full shadow-lg transition-all duration-200"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <span className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+                      <span className="animate-spin mr-2 h-4 w-4 border-2 border-yellow-400 border-t-transparent rounded-full"></span>
                       {t("contact.sending")}
                     </span>
                   ) : (

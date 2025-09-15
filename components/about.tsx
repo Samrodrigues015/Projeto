@@ -13,7 +13,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-20 bg-zinc-900">
+    <section id="about" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -22,10 +22,10 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white font-serif tracking-wide">
             {t("about.title")}
           </h2>
-          <div className="w-20 h-1 bg-violet-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto rounded-full shadow-yellow-400 shadow-md"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -33,7 +33,7 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative h-[500px] rounded-lg overflow-hidden"
+            className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden  shadow-xl"
           >
             <Image
               src="/foto2.jpg"
@@ -47,20 +47,21 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-zinc-900/70 rounded-xl p-8 shadow-lg border border-yellow-900"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-violet-400">
+            <h3 className="text-2xl font-semibold mb-4 text-yellow-400 font-serif tracking-wide">
               {t("about.role")}
             </h3>
-            <p className="text-zinc-300 mb-6">{t("about.description1")}</p>
-            <p className="text-zinc-300 mb-6">{t("about.description2")}</p>
-            <div className="grid grid-cols-1 md:grid-cols-1 gap-4 text-zinc-300">
+            <p className="text-zinc-200 mb-6 font-light">{t("about.description1")}</p>
+            <p className="text-zinc-200 mb-6 font-light">{t("about.description2")}</p>
+            <div className="grid grid-cols-1 gap-4 text-zinc-200">
               <div>
                 <p>
-                  <strong className="text-violet-400">{t("about.name")}</strong>{" "}
+                  <strong className="text-yellow-400">{t("about.name")}</strong>{" "}
                   Samara Rodrigues
                 </p>
                 <p>
-                  <strong className="text-violet-400">
+                  <strong className="text-yellow-400">
                     {t("about.email")}
                   </strong>{" "}
                   samararodrigues2000@icloud.com
@@ -68,13 +69,13 @@ export default function About() {
               </div>
               <div>
                 <p>
-                  <strong className="text-violet-400">
+                  <strong className="text-yellow-400">
                     {t("about.location")}
                   </strong>{" "}
                   Porto - Portugal
                 </p>
                 <p>
-                  <strong className="text-violet-400">
+                  <strong className="text-yellow-400">
                     {t("about.phone")}
                   </strong>{" "}
                   +351 913 963 455

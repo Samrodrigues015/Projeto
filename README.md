@@ -10,9 +10,9 @@ Um portfolio moderno, interativo e responsivo construído com Next.js e Tailwind
 - **Totalmente Responsivo**: Adaptado para todos os tamanhos de tela
 - **Multilíngue**: Suporte completo para inglês e português
 - **Animações Interativas**: Efeitos de animação suaves usando Framer Motion
-- **Seções Completas**: Hero, Sobre, Projetos, Habilidades e Contato
+- **Seções Completas**: Hero, Sobre, Projetos, Habilidades e contacto
 - **Componentes Reutilizáveis**: Construído com componentes modulares
-- **Formulário de Contato**: Formulário funcional com validação
+- **Formulário de contacto**: Formulário funcional com validação
 - **Modo Escuro**: Design otimizado para modo escuro
 
 ## 🚀 Tecnologias Utilizadas
@@ -71,7 +71,7 @@ portfolio-multilingue/
 │   ├── about.tsx           # Seção sobre
 │   ├── projects.tsx        # Seção de projetos
 │   ├── skills.tsx          # Seção de habilidades
-│   ├── contact.tsx         # Seção de contato
+│   ├── contact.tsx         # Seção de contacto
 │   ├── footer.tsx          # Rodapé
 │   ├── language-switcher.tsx # Seletor de idioma
 │   └── ui/                 # Componentes de UI do shadcn
@@ -105,10 +105,10 @@ O projeto utiliza Context API do React para gerenciar o estado do idioma:
 Edite os componentes em `components/` para atualizar suas informações pessoais:
 
 - `hero.tsx`: Nome, título e links sociais
-- `about.tsx`: Descrição, foto e detalhes de contato
+- `about.tsx`: Descrição, foto e detalhes de contacto
 - `projects.tsx`: Seus projetos e links
 - `skills.tsx`: Suas habilidades e níveis
-- `contact.tsx`: Informações de contato
+- `contact.tsx`: Informações de contacto
 
 ### Adicionando Novos Idiomas
 

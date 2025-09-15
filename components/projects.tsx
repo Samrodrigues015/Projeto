@@ -27,8 +27,6 @@ export default function Projects() {
   });
 
   useEffect(() => {
-    // Simulating fetching projects from GitHub API
-    // In a real implementation, you would fetch from the GitHub API
     setTimeout(() => {
       setProjects([
         {
@@ -76,7 +74,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-zinc-800">
+    <section id="projects" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -85,18 +83,18 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white font-serif tracking-wide">
             {t("projects.title")}
           </h2>
-          <div className="w-20 h-1 bg-violet-400 mx-auto mb-6"></div>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6 rounded-full shadow-yellow-400 shadow-md"></div>
+          <p className="text-zinc-300 max-w-2xl mx-auto font-light">
             {t("projects.subtitle")}
           </p>
         </motion.div>
 
         {isLoading ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-violet-400"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
           </div>
         ) : (
           <motion.div
@@ -109,9 +107,9 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 variants={item}
-                className="bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-violet-400/10 transition-shadow"
+                className="bg-zinc-900/80 rounded-xl overflow-hidden border-2 border-yellow-700 shadow-lg hover:shadow-yellow-400/20 transition-shadow"
               >
-                <div className="relative h-48">
+                <div className="relative h-48 border-b-2 border-yellow-900">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.name}
@@ -120,13 +118,17 @@ export default function Projects() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                  <p className="text-zinc-400 mb-4">{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-yellow-400 font-serif tracking-wide">
+                    {project.name}
+                  </h3>
+                  <p className="text-zinc-200 mb-4 font-light">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="text-xs bg-zinc-800 text-violet-400 px-2 py-1 rounded"
+                        className="text-xs bg-black/60 text-yellow-300 px-2 py-1 rounded border border-yellow-700"
                       >
                         {tech}
                       </span>
@@ -137,7 +139,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-zinc-300 hover:text-violet-400 transition-colors"
+                      className="flex items-center text-yellow-300 hover:text-yellow-400 transition-colors font-medium"
                     >
                       <Github className="w-4 h-4 mr-1" />
                       {t("projects.code")}
@@ -147,7 +149,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-zinc-300 hover:text-violet-400 transition-colors"
+                        className="flex items-center text-yellow-300 hover:text-yellow-400 transition-colors font-medium"
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
                         {t("projects.demo")}
