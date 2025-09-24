@@ -65,6 +65,18 @@ export default function Projects() {
           github: "https://github.com/Samrodrigues015/Portfolio.git",
           demo: "https://portifoliogisele.netlify.app/",
         },
+        {
+          id: 4,
+          name: language === "en" ? "Travel App" : "Aplicativo de Viagens",
+          description:
+            language === "en"
+              ? "A flight and hotel booking app built with React, Node.js, and Tailwind CSS for a school project. Allows users to search, book, and cancel reservations, with a clean interface and responsive design."
+              : "Um aplicativo de reservas de voos e hotéis construído com React, Node.js e Tailwind CSS para um projeto escolar. Permite aos usuários pesquisar, reservar e cancelar reservas, com interface limpa e design responsivo.",
+          image: "/travelapp.png?height=300&width=500",
+          technologies: ["React", "Node.js", "Tailwind CSS", "API"],
+          github: "https://github.com/Samrodrigues015/TravelApp",
+          demo: "https://appvoos.netlify.app/",
+        },
       ]);
       setIsLoading(false);
     }, 1000);
