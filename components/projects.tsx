@@ -53,6 +53,18 @@ export default function Projects() {
           github: "https://github.com/Samrodrigues015/Dualinfor.git",
           demo: "https://dualtech.netlify.app/",
         },
+        {
+          id: 3,
+          name: language === "en" ? "Personal Portfolio" : "Portfólio Pessoal",
+          description:
+            language === "en"
+              ? "A fictional website I created for a school project, showcasing the personal portfolio of the actress and model Gisele. Built with Next.js, Tailwind CSS, and Framer Motion, fully responsive and animated."
+              : "Site fictício que criei para um projeto da escola, mostrando o portfólio pessoal da atriz e modelo Gisele. Construído com Next.js, Tailwind CSS e Framer Motion, totalmente responsivo e animado.",
+          image: "/site-gisele.png?height=300&width=500",
+          technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "React"],
+          github: "https://github.com/Samrodrigues015/Portfolio.git",
+          demo: "https://portifoliogisele.netlify.app/",
+        },
       ]);
       setIsLoading(false);
     }, 1000);
