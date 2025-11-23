@@ -77,6 +77,18 @@ export default function Projects() {
           github: "https://github.com/Samrodrigues015/TravelApp",
           demo: "https://appvoos.netlify.app/",
         },
+        {
+          id: 5,
+          name: language === "en" ? "Anny Lima Nail Design" : "Anny Lima Nail Design",
+          description:
+            language === "en"
+              ? "A professional WordPress website developed for the nail designer and educator Anny Lima. The platform includes an exclusive student area with course materials, tutorials, and nail art tips. Built with Blocksy and custom PHP features to ensure a smooth and elegant user experience."
+              : "Site profissional em WordPress desenvolvido para a nail designer e educadora Anny Lima. A plataforma inclui uma área exclusiva para alunas com materiais do curso, tutoriais e dicas de nail art. Construído com Blocksy e recursos personalizados em PHP para garantir uma experiência elegante e fluida.",
+          image: "/annylima.png?height=300&width=500",
+          technologies: ["WordPress", "Blocksy", "PHP", "CSS"],
+          github: "",
+          demo: "https://annylima.ovh/",
+        },
       ]);
       setIsLoading(false);
     }, 1000);

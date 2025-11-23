@@ -95,7 +95,7 @@ const translations = {
     "about.description1":
       "Sou Desenvolvedora Web Front-end Júnior com experiência em projetos reais, desde sites responsivos até aplicações completas. Tenho uma base sólida em JavaScript, Node.js, PHP e Java, além de domínio em metodologias ágeis como Scrum e Kanban.",
     "about.description2":
-      "Atualmente, atuo tanto como freelancer no desenvolvimento de sites personalizados quanto em projetos com foco em front-end e UI/UX, utilizando WordPress, HTML, CSS e PHP. Também já liderei equipes de estagiários em iniciativas internas, participando de todo o ciclo de desenvolvimento.",
+      "Atualmente, atuo como freelancer no desenvolvimento de sites personalizados e em projetos focados em front-end e UI/UX, utilizando WordPress, HTML, CSS, PHP e JavaScript. Durante os 9 meses de estágio na Multimac Hito Innovation, liderei uma equipe de estagiários em iniciativas internas, participando de todo o ciclo de desenvolvimento.",
     "about.description3":
       "Sou apaixonada por tecnologia e por criar soluções que unam design, performance e experiência do usuário. Busco sempre aprender novas ferramentas, colaborar em equipe e transformar ideias em produtos digitais que gerem impacto real.",
     "about.name": "Nome:",
