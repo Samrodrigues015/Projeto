@@ -19,14 +19,6 @@
     --pink-300: 338 75% 81%;
     --pink-500: 338 64% 62%;
     --pink-700: 333 55% 45%;
-
-    /* tokens usados pelos componentes shadcn que ainda existem no projeto */
-    --background: var(--paper);
-    --foreground: var(--ink);
-    --border: var(--rule);
-    --input: var(--rule);
-    --ring: var(--pink-500);
-    --radius: 0.625rem;
   }
 
   * {

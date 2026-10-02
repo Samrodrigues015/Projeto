@@ -33,26 +33,6 @@ const config = {
           500: c("pink-500"),
           700: c("pink-700"),
         },
-        // aliases para os componentes shadcn existentes
-        border: c("border"),
-        input: c("input"),
-        ring: c("ring"),
-        background: c("background"),
-        foreground: c("foreground"),
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        ping: {
-          "0%": { transform: "scale(.6)", opacity: "1" },
-          "80%, 100%": { transform: "scale(1.7)", opacity: "0" },
-        },
-      },
-      animation: {
-        "status-ping": "ping 2.6s ease-out infinite",
       },
     },
   },
