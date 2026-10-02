@@ -1,37 +1,35 @@
 import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/contexts/language-context";
 
-const inter = Inter({ subsets: ["latin"] });
+// Geist para títulos e texto: uma família só, com hierarquia feita pelo peso.
+// Ficheiro local (app/fonts, licença OFL) em vez de next/font/google, para o
+// build não depender de acesso ao Google Fonts.
+const geist = localFont({
+  src: "./fonts/Geist-Variable.woff2",
+  weight: "100 900",
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Samara Rodrigues | Portfolio",
-  description: "Front-end Developer Portfolio",
-  generator: "v0.dev",
+  title: "Samara Rodrigues · Programadora .NET",
+  description:
+    "Programadora .NET no Porto. Desenvolvo aplicações web com C# e .NET, do servidor à interface.",
 };
+
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LanguageProvider>{children}</LanguageProvider>
-        </ThemeProvider>
+    <html lang="pt-PT" className={geist.variable}>
+      <body className="font-sans">
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
 }
-
-import "./globals.css";
