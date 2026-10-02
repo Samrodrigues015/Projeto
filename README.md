@@ -1,145 +1,69 @@
-# Portfolio Multilíngue
+# Samara Rodrigues — portfolio
 
-Um portfolio moderno, interativo e responsivo construído com Next.js e Tailwind CSS, com suporte para múltiplos idiomas (inglês e português).
+My personal site: who I am, the projects I've worked on and how to reach me.
+Content is in European Portuguese, with an English version.
 
-![Preview do Portfolio](https://via.placeholder.com/800x400?text=Portfolio+Preview)
+## Stack
 
-## 📋 Características
+- [Next.js](https://nextjs.org/) (App Router) and React
+- TypeScript
+- Tailwind CSS
+- A small WebGL shader for the hero background, with no 3D library
 
-- **Design Moderno e Minimalista**: Interface elegante com fundo escuro e detalhes em verde esmeralda
-- **Totalmente Responsivo**: Adaptado para todos os tamanhos de tela
-- **Multilíngue**: Suporte completo para inglês e português
-- **Animações Interativas**: Efeitos de animação suaves usando Framer Motion
-- **Seções Completas**: Hero, Sobre, Projetos, Habilidades e contacto
-- **Componentes Reutilizáveis**: Construído com componentes modulares
-- **Formulário de contacto**: Formulário funcional com validação
-- **Modo Escuro**: Design otimizado para modo escuro
+## Running locally
 
-## 🚀 Tecnologias Utilizadas
-
-- [Next.js 14](https://nextjs.org/) - Framework React
-- [React 18](https://reactjs.org/) - Biblioteca JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
-- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript
-- [Framer Motion](https://www.framer.com/motion/) - Biblioteca de animações
-- [Lucide React](https://lucide.dev/) - Ícones
-- [shadcn/ui](https://ui.shadcn.com/) - Componentes de UI
-
-## 🔧 Pré-requisitos
-
-- Node.js 18.17.0 ou superior
-- npm ou yarn
-
-## 💻 Instalação
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/Samrodrigues015/Projeto.git
-cd projeto
-```
-
-2. Instale as dependências:
+Requires Node.js 18.18 or later.
 
 ```bash
 npm install
-# ou
-yarn install
-```
-
-3. Execute o servidor de desenvolvimento:
-
-```bash
 npm run dev
-# ou
-yarn dev
 ```
 
-4. Abra [http://localhost:3000](http://localhost:3000)
+Then open http://localhost:3000.
 
-## 📁 Estrutura do Projeto
+For a production build:
 
 ```bash
-portfolio-multilingue/
-├── app/                    # Diretório principal do Next.js App Router
-│   ├── layout.tsx          # Layout principal da aplicação
-│   ├── page.tsx            # Página inicial
-│   └── globals.css         # Estilos globais
-├── components/             # Componentes reutilizáveis
-│   ├── header.tsx          # Cabeçalho com navegação
-│   ├── hero.tsx            # Seção hero
-│   ├── about.tsx           # Seção sobre
-│   ├── projects.tsx        # Seção de projetos
-│   ├── skills.tsx          # Seção de habilidades
-│   ├── contact.tsx         # Seção de contacto
-│   ├── footer.tsx          # Rodapé
-│   ├── language-switcher.tsx # Seletor de idioma
-│   └── ui/                 # Componentes de UI do shadcn
-├── contexts/               # Contextos React
-│   └── language-context.tsx # Contexto de idioma
-├── public/                 # Arquivos estáticos
-└── tailwind.config.ts      # Configuração do Tailwind CSS
+npm run build
+npm start
 ```
 
-## ✨ Funcionalidades
+## Structure
 
-### Sistema de Internacionalização
-
-O projeto utiliza Context API do React para gerenciar o estado do idioma:
-
-- `LanguageContext`: Gerencia o estado do idioma selecionado
-- `useLanguage`: Hook personalizado para acessar traduções
-- Armazenamento no localStorage para persistir a preferência de idioma
-
-### Componentes Interativos
-
-- **Animações**: Efeitos de entrada, digitação e transições suaves
-- **Navegação**: Menu responsivo com links de navegação suave
-- **Formulário**: Validação de formulário e feedback visual
-- **Barras de Habilidades**: Barras de progresso animadas
-
-## 🔍 Personalização
-
-### Alterando Informações Pessoais
-
-Edite os componentes em `components/` para atualizar suas informações pessoais:
-
-- `hero.tsx`: Nome, título e links sociais
-- `about.tsx`: Descrição, foto e detalhes de contacto
-- `projects.tsx`: Seus projetos e links
-- `skills.tsx`: Suas habilidades e níveis
-- `contact.tsx`: Informações de contacto
-
-### Adicionando Novos Idiomas
-
-1. Adicione um novo idioma no objeto `translations` em `contexts/language-context.tsx`:
-
-```bash
-const translations = {
-  en: { ... },
-  pt: { ... },
-  es: { // Exemplo para adicionar espanhol
-    "nav.home": "Inicio",
-    // Adicione todas as traduções necessárias
-  }
-}
+```
+app/
+  layout.tsx          fonts, metadata, language provider
+  page.tsx            page sections, in order
+  globals.css         colour tokens and base styles
+  fonts/              Geist (self-hosted, OFL)
+components/
+  header.tsx          sticky header, skip link, PT/EN toggle
+  hero.tsx            photo, headline and the satin background
+  satin-canvas.tsx    WebGL shader for the background
+  projects.tsx        project cards that expand into a short case study
+  about.tsx
+  skills.tsx          tools grouped by where I use them
+  contact.tsx
+  footer.tsx
+contexts/
+  language-context.tsx   UI strings in PT and EN
+lib/
+  projects.ts         project content (problem, what I did, result)
+public/               images, served as WebP
 ```
 
-2. Atualize o tipo `Language` para incluir o novo idioma:
+## Editing content
 
-```bash
-type Language = "en" | "pt" | "es";
-```
+- **Projects:** add or edit an entry in `lib/projects.ts`. Each project has
+  PT and EN text for the problem, what I did and the result. Screenshots go
+  in `public/projects/`.
+- **Other text:** `contexts/language-context.tsx`.
 
-3. Adicione o novo botão no componente `LanguageSwitcher`.
+## Notes
 
-### Alterando Cores e Estilos
-
-- As cores principais podem ser alteradas no arquivo `tailwind.config.ts`
-- Os estilos globais estão em `app/globals.css`
-
-## 👤 Autor
-
-Samara Rodrigues
-
-Feito com ❤️ e React
+- The hero background renders at half resolution and about 30 fps, pauses
+  when off-screen and has a pause button. Without WebGL, with software
+  rendering or with "reduce motion" turned on, a still image is shown instead.
+- The Multimac and Dualinfor projects show my own version of the work. For
+  security reasons the companies' code is not included; the live sites are
+  linked from each project.
