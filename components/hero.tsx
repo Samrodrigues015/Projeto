@@ -1,118 +1,70 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
-import Header from "./header";
+import Image from "next/image";
+import SatinCanvas from "./satin-canvas";
 import { useLanguage } from "@/contexts/language-context";
 
+export const EMAIL = "samararodrigues2000@icloud.com";
+
+/*
+  O cetim rosa é o fundo do topo inteiro; a foto e o texto ficam por cima.
+  A imagem estática (satin-poster.webp) fica sempre por baixo do canvas, por
+  isso o topo tem o mesmo aspeto sem WebGL ou com "reduzir movimento".
+*/
 export default function Hero() {
-  const { t, language } = useLanguage();
-  const [typedText, setTypedText] = useState("");
-  const fullText = t("hero.role");
-
-  useEffect(() => {
-    let currentIndex = 0;
-    setTypedText("");
-
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setTypedText(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 90);
-
-    return () => clearInterval(typingInterval);
-  }, [fullText, language]);
+  const { t } = useLanguage();
 
   return (
     <section
-      id="home"
-      className="relative h-screen flex items-center justify-center bg-black"
+      id="topo"
+      aria-labelledby="hero-title"
+      className="relative mx-2 overflow-hidden rounded-[28px] bg-pink-100 bg-[url('/satin-poster.webp')] bg-cover bg-center sm:mx-4"
     >
-      <Header />
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/90 to-black"></div>
-        <div className="h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-black/80 to-black"></div>
-      </div>
+      <SatinCanvas pauseLabel={t("hero.pause")} playLabel={t("hero.play")} />
 
-      <div className="container mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-white tracking-tight drop-shadow-lg font-serif">
-            {t("hero.title")}{" "}
-            <span
-              className="font-black"
-              style={{
-                color: "#fff",
-                textShadow: "none",
-                letterSpacing: "2px",
-              }}
-            >
-              Samara!
-            </span>
-          </h1>
-          <h2 className="text-2xl md:text-3xl mb-10 text-zinc-100 font-light italic font-serif">
-            <span className="border-r-4 border-yellow-400 pr-2 animate-pulse text-yellow-300">
-              {typedText}
-            </span>
-          </h2>
+      <div className="container relative z-10 grid items-center gap-8 py-10 md:grid-cols-[.8fr_1.2fr] md:gap-16 md:py-24">
+        <div className="relative aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(120,30,70,.55),0_0_0_6px_rgba(255,255,255,.55)] md:max-w-[420px]">
+          <Image
+            src="/samara.webp"
+            alt={t("hero.photoAlt")}
+            fill
+            priority
+            sizes="(min-width: 768px) 35vw, 240px"
+            className="object-cover"
+          />
+        </div>
 
-          <div className="flex justify-center space-x-8 mb-16">
-            <motion.a
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0 0 10px #FFD70080",
-              }}
-              href="https://github.com/Samrodrigues015"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-tr from-zinc-900 via-black to-zinc-800 border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-200 px-7 py-4 rounded-full shadow-lg flex items-center gap-2 text-yellow-300 font-semibold text-lg tracking-wide hover:bg-yellow-500/10"
-              style={{
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Github className="w-6 h-6 group-hover:text-yellow-400 transition-colors duration-200" />
-              <span className="hidden sm:inline">GitHub</span>
-            </motion.a>
-            <motion.a
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0 0 10px #FFD70080",
-              }}
-              href="https://www.linkedin.com/in/samara-rodrigues015/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-tr from-zinc-900 via-black to-zinc-800 border-2 border-yellow-500 hover:border-yellow-400 transition-all duration-200 px-7 py-4 rounded-full shadow-lg flex items-center gap-2 text-yellow-300 font-semibold text-lg tracking-wide hover:bg-yellow-500/10"
-              style={{
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Linkedin className="w-6 h-6 group-hover:text-yellow-400 transition-colors duration-200" />
-              <span className="hidden sm:inline">LinkedIn</span>
-            </motion.a>
-          </div>
-
-          <motion.a
-            href="#about"
-            className="inline-block"
-            animate={{ y: [0, 18, 0] }}
-            transition={{ repeat: Infinity, duration: 1.3, ease: "easeInOut" }}
+        <div>
+          <h1
+            id="hero-title"
+            className="mb-5 text-balance font-display text-[clamp(2.4rem,5vw,3.75rem)] font-semibold leading-[1.04] tracking-[-0.035em]"
           >
-            <ArrowDown
-              className="w-10 h-10 text-yellow-400"
-              style={{
-                filter: "drop-shadow(0 0 8px #FFD700)",
-              }}
-            />
-            <span className="sr-only">Scroll down</span>
-          </motion.a>
-        </motion.div>
+            {t("hero.title")}
+          </h1>
+
+          <p className="mb-8 max-w-[46ch] text-[clamp(1.05rem,1.6vw,1.2rem)] text-ink/75">
+            {t("hero.lede.before")}{" "}
+            <span translate="no" className="font-medium text-ink">
+              xopvision
+            </span>
+            {t("hero.lede.after")}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href="#projetos"
+              className="inline-flex items-center rounded-[10px] bg-ink px-5 py-3 font-medium text-paper transition hover:-translate-y-px hover:bg-ink/90"
+            >
+              {t("hero.cta")}
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="border-b-[1.5px] border-ink/30 pb-0.5 transition-colors hover:border-ink"
+            >
+              {t("hero.email")}
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
