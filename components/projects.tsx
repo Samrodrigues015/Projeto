@@ -36,7 +36,7 @@ export default function Projects() {
             language === "en"
               ? "A custom WordPress theme developed with PHP, HTML, CSS and JavaScript. Responsive, optimized for SEO and easy to customize."
               : "Um tema personalizado para WordPress, desenvolvido com PHP, HTML, CSS e JavaScript. Responsivo, otimizado para SEO e fácil de personalizar.",
-          image: "/multitech.png?height=300&width=500",
+          image: "/projects/multimac.webp",
           technologies: ["PHP", "JavaScript", "HTML", "CSS"],
           github: "https://github.com/Samrodrigues015/ProjetoMultimac.git",
           demo: "https://multitech-portifolio.netlify.app/",
@@ -48,7 +48,7 @@ export default function Projects() {
             language === "en"
               ? "A modern and responsive WordPress theme created for DualTech, using PHP, HTML, CSS and JavaScript. Built with a clean structure and focus on performance."
               : "Um tema moderno e responsivo para WordPress, criado para a DualTech com PHP, HTML, CSS e JavaScript. Construído com estrutura limpa e foco em performance.",
-          image: "/dualtech.png?height=300&width=500",
+          image: "/projects/dualinfor.webp",
           technologies: ["PHP", "JavaScript", "HTML", "CSS"],
           github: "https://github.com/Samrodrigues015/Dualinfor.git",
           demo: "https://dualtech.netlify.app/",
@@ -84,7 +84,7 @@ export default function Projects() {
             language === "en"
               ? "A professional WordPress website developed for the nail designer and educator Anny Lima. The platform includes an exclusive student area with course materials, tutorials, and nail art tips. Built with Blocksy and custom PHP features to ensure a smooth and elegant user experience."
               : "Site profissional em WordPress desenvolvido para a nail designer e educadora Anny Lima. A plataforma inclui uma área exclusiva para alunas com materiais do curso, tutoriais e dicas de nail art. Construído com Blocksy e recursos personalizados em PHP para garantir uma experiência elegante e fluida.",
-          image: "/annylima.png?height=300&width=500",
+          image: "/projects/anny-lima.webp",
           technologies: ["WordPress", "Blocksy", "PHP", "CSS"],
           github: "",
           demo: "https://annylima.ovh/",

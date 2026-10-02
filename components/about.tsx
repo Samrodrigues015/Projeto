@@ -36,7 +36,7 @@ export default function About() {
             className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden  shadow-xl"
           >
             <Image
-              src="/foto2.jpg"
+              src="/samara.webp"
               alt="Samara Rodrigues"
               fill
               className="object-cover"
