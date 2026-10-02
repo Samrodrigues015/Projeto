@@ -23,7 +23,7 @@ export default function Hero() {
       <SatinCanvas pauseLabel={t("hero.pause")} playLabel={t("hero.play")} />
 
       <div className="container relative z-10 grid items-center gap-8 py-10 md:grid-cols-[.8fr_1.2fr] md:gap-16 md:py-24">
-        <div className="relative aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(120,30,70,.55),0_0_0_6px_rgba(255,255,255,.55)] md:max-w-[420px]">
+        <div className="relative aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[18px] md:max-w-[420px]">
           <Image
             src="/samara.webp"
             alt={t("hero.photoAlt")}
