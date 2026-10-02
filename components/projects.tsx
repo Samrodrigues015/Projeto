@@ -1,203 +1,174 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github } from "lucide-react";
+import { useId, useState, type PointerEvent, type ReactNode } from "react";
 import Image from "next/image";
+import { projects, type Project } from "@/lib/projects";
 import { useLanguage } from "@/contexts/language-context";
 
-interface Project {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  github: string;
-  demo?: string;
+/*
+  Grelha de 5 colunas: cartões "wide" ocupam 3, "narrow" ocupam 2, e um
+  cartão que fique sozinho na última linha ocupa a largura toda. Assim a
+  grelha alterna larguras em vez de repetir cartões iguais.
+*/
+function spanFor(p: Project, i: number, all: Project[]) {
+  const isLastAlone = i === all.length - 1 && i % 2 === 0;
+  if (isLastAlone) return "md:col-span-5";
+  return p.size === "wide" ? "md:col-span-3" : "md:col-span-2";
 }
 
 export default function Projects() {
+  const { t } = useLanguage();
+
+  return (
+    <section id="projetos" className="container scroll-mt-20 py-16 md:py-24">
+      <h2 className="mb-2.5 font-display text-[clamp(1.8rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.035em]">
+        {t("projects.title")}
+      </h2>
+      <p className="mb-9 max-w-[56ch] text-grey">{t("projects.subtitle")}</p>
+
+      <div className="grid gap-4 md:grid-cols-5">
+        {projects.map((p, i) => (
+          <ProjectCard
+            key={p.id}
+            project={p}
+            className={spanFor(p, i, projects)}
+            fullWidth={spanFor(p, i, projects) === "md:col-span-5"}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({
+  project: p,
+  className,
+  fullWidth,
+}: {
+  project: Project;
+  className: string;
+  fullWidth: boolean;
+}) {
   const { t, language } = useLanguage();
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [open, setOpen] = useState(false);
+  const caseId = useId();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setProjects([
-        {
-          id: 1,
-          name: language === "en" ? "Multitech Theme" : "Tema Multitech",
-          description:
-            language === "en"
-              ? "A custom WordPress theme developed with PHP, HTML, CSS and JavaScript. Responsive, optimized for SEO and easy to customize."
-              : "Um tema personalizado para WordPress, desenvolvido com PHP, HTML, CSS e JavaScript. Responsivo, otimizado para SEO e fácil de personalizar.",
-          image: "/projects/multimac.webp",
-          technologies: ["PHP", "JavaScript", "HTML", "CSS"],
-          github: "https://github.com/Samrodrigues015/ProjetoMultimac.git",
-          demo: "https://multitech-portifolio.netlify.app/",
-        },
-        {
-          id: 2,
-          name: language === "en" ? "DualTech Theme" : "Tema DualTech",
-          description:
-            language === "en"
-              ? "A modern and responsive WordPress theme created for DualTech, using PHP, HTML, CSS and JavaScript. Built with a clean structure and focus on performance."
-              : "Um tema moderno e responsivo para WordPress, criado para a DualTech com PHP, HTML, CSS e JavaScript. Construído com estrutura limpa e foco em performance.",
-          image: "/projects/dualinfor.webp",
-          technologies: ["PHP", "JavaScript", "HTML", "CSS"],
-          github: "https://github.com/Samrodrigues015/Dualinfor.git",
-          demo: "https://dualtech.netlify.app/",
-        },
-        {
-          id: 3,
-          name: language === "en" ? "Personal Portfolio" : "Portfólio Pessoal",
-          description:
-            language === "en"
-              ? "A fictional website I created for a school project, showcasing the personal portfolio of the actress and model Gisele. Built with Next.js, Tailwind CSS, and Framer Motion, fully responsive and animated."
-              : "Site fictício que criei para um projeto da escola, mostrando o portfólio pessoal da atriz e modelo Gisele. Construído com Next.js, Tailwind CSS e Framer Motion, totalmente responsivo e animado.",
-          image: "/site-gisele.png?height=300&width=500",
-          technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "React"],
-          github: "https://github.com/Samrodrigues015/Portfolio.git",
-          demo: "https://portifoliogisele.netlify.app/",
-        },
-        {
-          id: 4,
-          name: language === "en" ? "Travel App" : "Aplicativo de Viagens",
-          description:
-            language === "en"
-              ? "A flight and hotel booking app built with React, Node.js, and Tailwind CSS for a school project. Allows users to search, book, and cancel reservations, with a clean interface and responsive design."
-              : "Um aplicativo de reservas de voos e hotéis construído com React, Node.js e Tailwind CSS para um projeto escolar. Permite aos usuários pesquisar, reservar e cancelar reservas, com interface limpa e design responsivo.",
-          image: "/travelapp.png?height=300&width=500",
-          technologies: ["React", "Node.js", "Tailwind CSS", "API"],
-          github: "https://github.com/Samrodrigues015/TravelApp",
-          demo: "https://appvoos.netlify.app/",
-        },
-        {
-          id: 5,
-          name: language === "en" ? "Anny Lima Nail Design" : "Anny Lima Nail Design",
-          description:
-            language === "en"
-              ? "A professional WordPress website developed for the nail designer and educator Anny Lima. The platform includes an exclusive student area with course materials, tutorials, and nail art tips. Built with Blocksy and custom PHP features to ensure a smooth and elegant user experience."
-              : "Site profissional em WordPress desenvolvido para a nail designer e educadora Anny Lima. A plataforma inclui uma área exclusiva para alunas com materiais do curso, tutoriais e dicas de nail art. Construído com Blocksy e recursos personalizados em PHP para garantir uma experiência elegante e fluida.",
-          image: "/projects/anny-lima.webp",
-          technologies: ["WordPress", "Blocksy", "PHP", "CSS"],
-          github: "",
-          demo: "https://annylima.ovh/",
-        },
-      ]);
-      setIsLoading(false);
-    }, 1000);
-  }, [language]);
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  // Posição do cursor para o brilho rosa (CSS custom properties, sem re-render).
+  const onMove = (e: PointerEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
   };
 
   return (
-    <section id="projects" className="py-20 bg-black">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white font-serif tracking-wide">
-            {t("projects.title")}
-          </h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6 rounded-full shadow-yellow-400 shadow-md"></div>
-          <p className="text-zinc-300 max-w-2xl mx-auto font-light">
-            {t("projects.subtitle")}
-          </p>
-        </motion.div>
-
-        {isLoading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
+    <article
+      onPointerMove={onMove}
+      className={`group relative isolate flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper p-5 transition duration-300 hover:-translate-y-0.5 hover:border-pink-300 sm:p-6 ${className}
+        before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100
+        before:bg-[radial-gradient(280px_circle_at_var(--mx,50%)_var(--my,50%),hsl(var(--pink-50)),transparent_70%)]`}
+    >
+      <div className={fullWidth && p.image ? "grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-start" : "flex flex-1 flex-col"}>
+        {p.image && (
+          <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-[10px] border border-rule bg-soft">
+            <Image
+              src={p.image.src}
+              alt={p.image.alt[language]}
+              fill
+              sizes="(min-width: 768px) 60vw, 100vw"
+              className="object-cover object-top"
+            />
           </div>
-        ) : (
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate={inView ? "show" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={item}
-                className="bg-zinc-900/80 rounded-xl overflow-hidden border-2 border-yellow-700 shadow-lg hover:shadow-yellow-400/20 transition-shadow"
-              >
-                <div className="relative h-48 border-b-2 border-yellow-900">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-yellow-400 font-serif tracking-wide">
-                    {project.name}
-                  </h3>
-                  <p className="text-zinc-200 mb-4 font-light">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-black/60 text-yellow-300 px-2 py-1 rounded border border-yellow-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-yellow-300 hover:text-yellow-400 transition-colors font-medium"
-                    >
-                      <Github className="w-4 h-4 mr-1" />
-                      {t("projects.code")}
-                    </a>
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-yellow-300 hover:text-yellow-400 transition-colors font-medium"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-1" />
-                        {t("projects.demo")}
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         )}
+
+        <div className="flex flex-1 flex-col">
+          <p className="mb-1.5 text-[13px] text-grey">{p.context[language]}</p>
+          <h3 translate="no" className="mb-2 font-display text-[1.4rem] font-semibold leading-tight tracking-[-0.025em]">
+            {p.name}
+          </h3>
+          {/* Sem imagem, o resumo ganha tamanho e ocupa o espaço com conteúdo */}
+          <p
+            className={
+              p.image
+                ? "text-grey"
+                : "max-w-[30ch] font-display text-[clamp(1.2rem,1.9vw,1.45rem)] font-medium leading-snug tracking-[-0.01em]"
+            }
+          >
+            {p.summary[language]}
+          </p>
+          {!p.image && <p className="mt-4 max-w-[46ch] text-grey">{p.problem[language]}</p>}
+
+          <div className="mt-auto" />
+          <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="Tecnologias">
+            {p.tech.map((tech) => (
+              <li key={tech} className="rounded-md border border-rule bg-soft px-2 py-0.5 text-[13px]">
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          {/* Caso completo: abre com uma transição de altura (grid-rows 0fr → 1fr) */}
+          <div
+            id={caseId}
+            className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+              open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            }`}
+          >
+            <div className="overflow-hidden" inert={!open}>
+              <dl className="mt-5 grid gap-4 border-t border-rule pt-5 text-[15.5px]">
+                {(
+                  [
+                    ["projects.problem", p.problem],
+                    ["projects.work", p.work],
+                    ["projects.result", p.result],
+                  ] as const
+                ).map(([label, text]) => (
+                  <div key={label}>
+                    <dt className="mb-1 text-[13px] font-semibold">{t(label)}</dt>
+                    <dd className="text-grey">{text[language]}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-5 text-[15px]">
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              aria-expanded={open}
+              aria-controls={caseId}
+              className="inline-flex items-center gap-1.5 font-medium transition-colors hover:text-pink-700"
+            >
+              {open ? t("projects.close") : t("projects.open")}
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+                className={`transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+              >
+                <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </button>
+            {p.links.demo && <ExtLink href={p.links.demo}>{t("projects.demo")}</ExtLink>}
+            {p.links.original && <ExtLink href={p.links.original}>{t("projects.original")}</ExtLink>}
+            {p.links.code && <ExtLink href={p.links.code}>{t("projects.code")}</ExtLink>}
+          </div>
+        </div>
       </div>
-    </section>
+    </article>
+  );
+}
+
+function ExtLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-pink-700 underline decoration-pink-300 decoration-[1.5px] underline-offset-4 transition-colors hover:decoration-pink-500"
+    >
+      {children}
+    </a>
   );
 }
