@@ -56,19 +56,9 @@ void main(){
   gl_FragColor=vec4(col,1.);
 }`;
 
-export default function SatinCanvas({
-  pauseLabel,
-  playLabel,
-}: {
-  pauseLabel: string;
-  playLabel: string;
-}) {
+export default function SatinCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ready, setReady] = useState(false);
-  // Movimento contínuo com mais de 5 s precisa de um controlo para parar (WCAG 2.2.2).
-  const [paused, setPaused] = useState(false);
-  const pausedRef = useRef(false);
-  pausedRef.current = paused;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -145,7 +135,7 @@ export default function SatinCanvas({
       };
 
       const loop = (now: number) => {
-        if (visible && !pausedRef.current && !document.hidden && now - last >= FRAME_MS) {
+        if (visible && !document.hidden && now - last >= FRAME_MS) {
           last = now;
           draw();
         }
@@ -199,31 +189,12 @@ export default function SatinCanvas({
   }, []);
 
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        className={`absolute inset-0 h-full w-full transition-opacity duration-700 ${
-          ready ? "opacity-100" : "opacity-0"
-        }`}
-      />
-      {ready && (
-        <button
-          type="button"
-          onClick={() => setPaused((p) => !p)}
-          aria-label={paused ? playLabel : pauseLabel}
-          aria-pressed={paused}
-          className="absolute bottom-3 right-3 z-20 grid h-9 w-9 place-items-center rounded-full bg-paper/80 text-ink shadow-sm backdrop-blur-sm transition-colors hover:bg-paper"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-            {paused ? (
-              <path d="M3 1.5v9l7.5-4.5z" fill="currentColor" />
-            ) : (
-              <path d="M3 1.5v9M9 1.5v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
-      )}
-    </>
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className={`absolute inset-0 h-full w-full transition-opacity duration-700 ${
+        ready ? "opacity-100" : "opacity-0"
+      }`}
+    />
   );
 }

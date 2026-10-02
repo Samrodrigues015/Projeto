@@ -31,8 +31,6 @@ const translations: Record<Language, Record<string, string>> = {
       ", uma plataforma de bilhética. Nos projetos pessoais, aprofundo arquitetura de software e testes automatizados.",
     "hero.cta": "Ver projetos",
     "hero.email": "Enviar email",
-    "hero.pause": "Pausar animação",
-    "hero.play": "Retomar animação",
     "skip": "Saltar para o conteúdo",
 
     "projects.title": "Projetos selecionados",
@@ -90,8 +88,6 @@ const translations: Record<Language, Record<string, string>> = {
       " team, a ticketing platform. In my own projects, I go deeper into software architecture and automated testing.",
     "hero.cta": "See projects",
     "hero.email": "Send an email",
-    "hero.pause": "Pause animation",
-    "hero.play": "Play animation",
     "skip": "Skip to content",
 
     "projects.title": "Selected projects",
