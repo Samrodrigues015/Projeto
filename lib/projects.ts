@@ -80,6 +80,37 @@ export const projects: Project[] = [
     links: {},
   },
   {
+    id: "baralho-cigano",
+    name: "Samara · Baralho Cigano",
+    context: { pt: "Projeto pessoal · 2026", en: "Personal project · 2026" },
+    summary: {
+      pt: "O meu site de consultas de Baralho Cigano, que faço nas horas vagas.",
+      en: "My website for the Baralho Cigano card readings I do in my spare time.",
+    },
+    problem: {
+      pt: "Nas horas vagas sou cartomante e precisava de um sítio onde apresentar as consultas online e onde as pessoas me pudessem contactar com facilidade.",
+      en: "In my spare time I read cards, and I needed a place to present my online readings and make it easy for people to get in touch.",
+    },
+    work: {
+      pt: "Desenvolvi o site em Next.js 16, React 19, TypeScript e Tailwind CSS 4, com as secções de leituras, depoimentos e uma “carta do dia” interativa. Integrei o Google Tag Manager e o Vercel Analytics para perceber de onde vêm as visitas e quantas chegam ao contacto.",
+      en: "I built the site with Next.js 16, React 19, TypeScript and Tailwind CSS 4, with sections for readings, testimonials and an interactive “card of the day”. I added Google Tag Manager and Vercel Analytics to see where visits come from and how many reach the contact section.",
+    },
+    result: {
+      pt: "O site está publicado na Vercel e já recolhe dados de visitas. O passo seguinte é medir melhor os pedidos de consulta, para ajustar o conteúdo com base nesses números.",
+      en: "The site is live on Vercel and already collects visit data. The next step is to measure booking requests more closely and adjust the content based on those numbers.",
+    },
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Google Tag Manager"],
+    image: {
+      src: "/projects/baralho-cigano.webp",
+      alt: {
+        pt: "Página inicial do site Samara Baralho Cigano",
+        en: "Home page of the Samara Baralho Cigano website",
+      },
+    },
+    size: "narrow",
+    links: { demo: "https://novus-iota-ten.vercel.app/" },
+  },
+  {
     id: "dualinfor",
     name: "Dualinfor",
     context: { pt: "Estágio · 2025", en: "Internship · 2025" },
@@ -145,5 +176,4 @@ export const projects: Project[] = [
     size: "wide",
     links: { demo: "https://annylima.ovh/" },
   },
-  // TODO: oraculo-samara — a acrescentar quando houver a descrição do projeto.
 ];
