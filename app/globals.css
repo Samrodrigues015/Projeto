@@ -19,6 +19,12 @@
     --pink-300: 338 75% 81%;
     --pink-500: 338 64% 62%;
     --pink-700: 333 55% 45%;
+
+    /* fundos das secções: tons muito claros da mesma família do rosa do topo */
+    --tint-projects: 345 55% 97%;
+    --tint-about: 22 42% 95.5%;
+    --tint-stack: 290 30% 96.5%;
+    --tint-contact: 338 65% 94.5%;
   }
 
   * {

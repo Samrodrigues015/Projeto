@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     // Em ecrãs grandes o banner fica limitado à largura do conteúdo (1240px,
     // a mesma do cabeçalho) em vez de ocupar o ecrã inteiro.
-    <div className="px-2 sm:px-4">
+    <div className="px-2 pb-12 sm:px-4 md:pb-16">
       <section
         id="topo"
         aria-labelledby="hero-title"

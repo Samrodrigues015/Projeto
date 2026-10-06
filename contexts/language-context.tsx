@@ -33,7 +33,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.email": "Enviar email",
     "skip": "Saltar para o conteúdo",
 
-    "projects.title": "Projetos selecionados",
+    "projects.title": "Projetos",
     "projects.subtitle":
       "Em cada projeto explico o problema, o que fiz e o resultado.",
     "projects.problem": "Problema",
@@ -90,7 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.email": "Send an email",
     "skip": "Skip to content",
 
-    "projects.title": "Selected projects",
+    "projects.title": "Projects",
     "projects.subtitle":
       "For each project I explain the problem, what I did and the result.",
     "projects.problem": "Problem",

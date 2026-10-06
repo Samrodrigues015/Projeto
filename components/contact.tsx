@@ -22,32 +22,34 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contacto" className="container scroll-mt-20 border-t border-rule py-16 md:py-24">
-      <div className="grid gap-10 md:grid-cols-[.8fr_1fr] md:gap-16">
-        <div>
-          <h2 className="mb-2.5 font-display text-[clamp(1.8rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.035em]">
-            {t("contact.title")}
-          </h2>
-          <p className="max-w-[40ch] text-grey">{t("contact.subtitle")}</p>
-        </div>
+    <section id="contacto" className="scroll-mt-16 bg-tint-contact">
+      <div className="container py-16 md:py-24">
+        <div className="grid gap-10 md:grid-cols-[.8fr_1fr] md:gap-16">
+          <div>
+            <h2 className="mb-2.5 font-display text-[clamp(1.8rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.035em]">
+              {t("contact.title")}
+            </h2>
+            <p className="max-w-[40ch] text-grey">{t("contact.subtitle")}</p>
+          </div>
 
-        <dl className="divide-y divide-rule border-y border-rule">
-          {rows.map((r) => (
-            <div key={r.label} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4">
-              <dt className="w-24 text-[14px] text-grey">{r.label}</dt>
-              <dd className="flex min-w-0 flex-1 items-center justify-between gap-4">
-                <a
-                  href={r.href}
-                  {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="min-w-0 break-words underline decoration-pink-300 decoration-[1.5px] underline-offset-4 transition-colors hover:decoration-pink-500"
-                >
-                  {r.value}
-                </a>
-                {r.copy && <CopyButton value={r.value} />}
-              </dd>
-            </div>
-          ))}
-        </dl>
+          <dl className="divide-y divide-rule border-y border-rule">
+            {rows.map((r) => (
+              <div key={r.label} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4">
+                <dt className="w-24 text-[14px] text-grey">{r.label}</dt>
+                <dd className="flex min-w-0 flex-1 items-center justify-between gap-4">
+                  <a
+                    href={r.href}
+                    {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="min-w-0 break-words underline decoration-pink-300 decoration-[1.5px] underline-offset-4 transition-colors hover:decoration-pink-500"
+                  >
+                    {r.value}
+                  </a>
+                  {r.copy && <CopyButton value={r.value} />}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );

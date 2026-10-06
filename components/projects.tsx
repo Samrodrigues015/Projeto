@@ -20,21 +20,23 @@ export default function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projetos" className="container scroll-mt-20 py-16 md:py-24">
-      <h2 className="mb-2.5 font-display text-[clamp(1.8rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.035em]">
-        {t("projects.title")}
-      </h2>
-      <p className="mb-9 max-w-[56ch] text-grey">{t("projects.subtitle")}</p>
+    <section id="projetos" className="scroll-mt-16 bg-tint-projects">
+      <div className="container py-16 md:py-24">
+        <h2 className="mb-2.5 font-display text-[clamp(1.8rem,3.4vw,2.5rem)] font-semibold leading-tight tracking-[-0.035em]">
+          {t("projects.title")}
+        </h2>
+        <p className="mb-9 max-w-[56ch] text-grey">{t("projects.subtitle")}</p>
 
-      <div className="grid gap-4 md:grid-cols-5">
-        {projects.map((p, i) => (
-          <ProjectCard
-            key={p.id}
-            project={p}
-            className={spanFor(p, i, projects)}
-            fullWidth={spanFor(p, i, projects) === "md:col-span-5"}
-          />
-        ))}
+        <div className="grid gap-4 md:grid-cols-5">
+          {projects.map((p, i) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+              className={spanFor(p, i, projects)}
+              fullWidth={spanFor(p, i, projects) === "md:col-span-5"}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

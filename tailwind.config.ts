@@ -26,6 +26,12 @@ const config = {
         grey: c("grey"),
         soft: c("soft"),
         rule: c("rule"),
+        tint: {
+          projects: c("tint-projects"),
+          about: c("tint-about"),
+          stack: c("tint-stack"),
+          contact: c("tint-contact"),
+        },
         pink: {
           50: c("pink-50"),
           100: c("pink-100"),
