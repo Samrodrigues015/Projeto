@@ -1,69 +1,74 @@
-# Samara Rodrigues — portfolio
+# Samara Rodrigues: portfolio
 
-My personal site: who I am, the projects I've worked on and how to reach me.
-Content is in European Portuguese, with an English version.
+This is the code for my personal site. It has a short introduction, a few
+projects written up as small case studies (the problem, what I did, the
+result), my stack and my contact details. The site is in European Portuguese
+by default, with an English version.
 
-## Stack
+I'm a .NET developer in Porto. My day-to-day work is C# and ASP.NET, so this
+project is also where I keep my front-end skills in use.
 
-- [Next.js](https://nextjs.org/) (App Router) and React
-- TypeScript
-- Tailwind CSS
-- A small WebGL shader for the hero background, with no 3D library
+## Built with
 
-## Running locally
+- Next.js 15 (App Router), React 19 and TypeScript
+- Tailwind CSS 3
+- Geist, self-hosted through `next/font/local`
+- A small WebGL fragment shader for the animated background in the hero,
+  written by hand, without three.js or any other 3D library
 
-Requires Node.js 18.18 or later.
+## Running it locally
+
+You need Node.js 18.18 or newer.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Then open http://localhost:3000.
-
-For a production build:
+The site runs at http://localhost:3000. To check the production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Structure
+## Where things are
 
-```
-app/
-  layout.tsx          fonts, metadata, language provider
-  page.tsx            page sections, in order
-  globals.css         colour tokens and base styles
-  fonts/              Geist (self-hosted, OFL)
-components/
-  header.tsx          sticky header, skip link, PT/EN toggle
-  hero.tsx            photo, headline and the satin background
-  satin-canvas.tsx    WebGL shader for the background
-  projects.tsx        project cards that expand into a short case study
-  about.tsx
-  skills.tsx          tools grouped by where I use them
-  contact.tsx
-  footer.tsx
-contexts/
-  language-context.tsx   UI strings in PT and EN
-lib/
-  projects.ts         project content (problem, what I did, result)
-public/               images, served as WebP
-```
+Project content lives in `lib/projects.ts`. Each entry has the PT and EN
+text for the case study, the tech list and the links. Screenshots go in
+`public/projects/`, as WebP, around 1400px wide.
 
-## Editing content
+The rest of the copy, from the navigation to the contact section, is in
+`contexts/language-context.tsx`. The chosen language is saved in
+`localStorage`, and the `lang` attribute on `<html>` changes with it.
 
-- **Projects:** add or edit an entry in `lib/projects.ts`. Each project has
-  PT and EN text for the problem, what I did and the result. Screenshots go
-  in `public/projects/`.
-- **Other text:** `contexts/language-context.tsx`.
+Each section of the page has its own component in `components/`. The order
+they appear in is set in `app/page.tsx`. Colours are CSS variables in
+`app/globals.css`, mapped to Tailwind classes in `tailwind.config.ts`.
 
-## Notes
+## About the hero background
 
-- The hero background renders at half resolution and about 30 fps, pauses
-  when off-screen and has a pause button. Without WebGL, with software
-  rendering or with "reduce motion" turned on, a still image is shown instead.
-- The Multimac and Dualinfor projects show my own version of the work. For
-  security reasons the companies' code is not included; the live sites are
-  linked from each project.
+The pink satin effect is drawn by `components/satin-canvas.tsx`. To keep it
+light, it:
+
+- renders at half resolution and about 30 frames per second;
+- only starts once the browser is idle, so it doesn't delay the first paint;
+- stops drawing when it is off-screen or the tab is hidden.
+
+Under the canvas there is a static image of the same effect
+(`public/satin-poster.webp`, 2 KB). That image is what visitors see when
+WebGL isn't available, when the browser renders WebGL in software, or when
+the system is set to reduce motion.
+
+## A note on two of the projects
+
+Multimac and Dualinfor were built during my internship. For security
+reasons I don't publish the companies' code. The demos and repositories
+linked from those cards are my own versions of the work, and each card also
+links to the company's live site.
+
+## Licence
+
+You're welcome to read the code and borrow ideas from it. The photos of me
+and the project screenshots are not licensed for reuse. Geist is
+distributed under the SIL Open Font License; see `app/fonts/OFL.txt`.
