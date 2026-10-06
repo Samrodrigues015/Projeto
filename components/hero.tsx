@@ -26,7 +26,7 @@ export default function Hero() {
         <SatinCanvas />
 
         <div className="container relative z-10 grid items-center gap-8 px-6 py-10 md:grid-cols-[.8fr_1.2fr] md:gap-16 md:px-12 md:py-24">
-          <div className="relative aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[18px] md:max-w-[420px]">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[18px] md:mx-0 md:max-w-[420px]">
             <Image
               src="/samara.webp"
               alt={t("hero.photoAlt")}
@@ -37,6 +37,7 @@ export default function Hero() {
             />
           </div>
 
+          {/* No telemóvel a foto fica centrada e o texto alinhado à esquerda */}
           <div>
             <h1
               id="hero-title"
