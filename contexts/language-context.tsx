@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     "stack.web": "Web e clientes",
     "stack.webNote": "Em projetos freelance e no estágio",
     "stack.learning": "Em aprendizagem",
-    "stack.learningNote": "No PersonalAssistant e noutros projetos pessoais",
+    "stack.learningNote": "Em projetos pessoais",
 
     "contact.title": "Contacto",
     "contact.subtitle":
@@ -121,7 +121,7 @@ const translations: Record<Language, Record<string, string>> = {
     "stack.web": "Web and clients",
     "stack.webNote": "In freelance projects and during my internship",
     "stack.learning": "Currently learning",
-    "stack.learningNote": "In PersonalAssistant and other personal projects",
+    "stack.learningNote": "In personal projects",
 
     "contact.title": "Contact",
     "contact.subtitle":

@@ -56,30 +56,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "personal-assistant",
-    name: "PersonalAssistant",
-    context: { pt: "Projeto pessoal · 2026", en: "Personal project · 2026" },
-    summary: {
-      pt: "Assistente de voz para Windows, em C# e .NET, com IA local.",
-      en: "A voice assistant for Windows, in C# and .NET, with local AI.",
-    },
-    problem: {
-      pt: "Queria aprender arquitetura de software com profundidade, e para isso precisava de um projeto maior do que um exercício isolado.",
-      en: "I wanted to learn software architecture in depth, and that needed a project bigger than an isolated exercise.",
-    },
-    work: {
-      pt: "Estou a construir um assistente semelhante à Alexa, em C# e .NET 10, que conversa através de um modelo de linguagem a correr localmente com Ollama e executa ações no computador. Organizei o código com injeção de dependências, interfaces e princípios SOLID.",
-      en: "I'm building an Alexa-like assistant in C# and .NET 10 that talks through a language model running locally with Ollama and performs actions on the computer. I structured the code with dependency injection, interfaces and SOLID principles.",
-    },
-    result: {
-      pt: "A primeira versão está funcional, com 18 testes xUnit a passar. A fase seguinte acrescenta voz, com Whisper para o reconhecimento e o motor de síntese nativo do Windows.",
-      en: "The first version works, with 18 passing xUnit tests. The next phase adds voice, using Whisper for recognition and the native Windows speech engine.",
-    },
-    tech: [".NET 10", "C#", "Ollama", "xUnit", "Whisper"],
-    size: "narrow",
-    links: {},
-  },
-  {
     id: "baralho-cigano",
     name: "Samara · Baralho Cigano",
     context: { pt: "Projeto pessoal · 2026", en: "Personal project · 2026" },
@@ -109,6 +85,37 @@ export const projects: Project[] = [
     },
     size: "narrow",
     links: { demo: "https://novus-iota-ten.vercel.app/" },
+  },
+  {
+    id: "anny-lima",
+    name: "Anny Lima Nail Design",
+    context: { pt: "Freelance", en: "Freelance" },
+    summary: {
+      pt: "Site profissional com área reservada às alunas dos cursos.",
+      en: "A professional website with a private area for course students.",
+    },
+    problem: {
+      pt: "A nail designer e formadora Anny Lima precisava de um site profissional e de um espaço reservado onde as alunas encontrassem os materiais dos cursos.",
+      en: "Nail designer and educator Anny Lima needed a professional website and a private space where her students could find course materials.",
+    },
+    work: {
+      pt: "Construí o site em WordPress com o tema Blocksy e funcionalidades em PHP à medida, incluindo uma área exclusiva com materiais, tutoriais e dicas de nail art.",
+      en: "I built the site in WordPress with the Blocksy theme and custom PHP features, including a members-only area with materials, tutorials and nail art tips.",
+    },
+    result: {
+      pt: "O site está online e reúne num só lugar a apresentação do trabalho da Anny e o apoio às alunas.",
+      en: "The site is live and brings together Anny's portfolio and student support in one place.",
+    },
+    tech: ["WordPress", "Blocksy", "PHP", "CSS"],
+    image: {
+      src: "/projects/anny-lima.webp",
+      alt: {
+        pt: "Página inicial do site Anny Lima Nail Design",
+        en: "Home page of the Anny Lima Nail Design website",
+      },
+    },
+    size: "narrow",
+    links: { demo: "https://annylima.ovh/" },
   },
   {
     id: "dualinfor",
@@ -144,36 +151,5 @@ export const projects: Project[] = [
       code: "https://github.com/Samrodrigues015/Dualinfor",
       original: "https://dualinfor.pt/",
     },
-  },
-  {
-    id: "anny-lima",
-    name: "Anny Lima Nail Design",
-    context: { pt: "Freelance", en: "Freelance" },
-    summary: {
-      pt: "Site profissional com área reservada às alunas dos cursos.",
-      en: "A professional website with a private area for course students.",
-    },
-    problem: {
-      pt: "A nail designer e formadora Anny Lima precisava de um site profissional e de um espaço reservado onde as alunas encontrassem os materiais dos cursos.",
-      en: "Nail designer and educator Anny Lima needed a professional website and a private space where her students could find course materials.",
-    },
-    work: {
-      pt: "Construí o site em WordPress com o tema Blocksy e funcionalidades em PHP à medida, incluindo uma área exclusiva com materiais, tutoriais e dicas de nail art.",
-      en: "I built the site in WordPress with the Blocksy theme and custom PHP features, including a members-only area with materials, tutorials and nail art tips.",
-    },
-    result: {
-      pt: "O site está online e reúne num só lugar a apresentação do trabalho da Anny e o apoio às alunas.",
-      en: "The site is live and brings together Anny's portfolio and student support in one place.",
-    },
-    tech: ["WordPress", "Blocksy", "PHP", "CSS"],
-    image: {
-      src: "/projects/anny-lima.webp",
-      alt: {
-        pt: "Página inicial do site Anny Lima Nail Design",
-        en: "Home page of the Anny Lima Nail Design website",
-      },
-    },
-    size: "wide",
-    links: { demo: "https://annylima.ovh/" },
   },
 ];
