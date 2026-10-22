@@ -21,38 +21,37 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "multimac",
-    name: "Multimac",
-    context: { pt: "Estágio · 2025", en: "Internship · 2025" },
+    id: "skylane",
+    name: "Skylane",
+    context: { pt: "Projeto pessoal · 2026", en: "Personal project · 2026" },
     summary: {
-      pt: "Tema WordPress à medida para o site institucional da empresa.",
-      en: "Custom WordPress theme for the company website.",
+      pt: "Reserva de voos e eventos que não vende mais bilhetes do que existem, mesmo com centenas de compras ao mesmo tempo.",
+      en: "Flight and event booking that never sells more tickets than exist, even with hundreds of purchases at the same time.",
     },
     problem: {
-      pt: "A Multimac precisava de um site institucional em WordPress que apresentasse as suas soluções com clareza e fosse simples de manter.",
-      en: "Multimac needed a WordPress company website that presented its solutions clearly and was simple to maintain.",
+      pt: "Num sistema de bilhética, o momento crítico é a abertura das vendas: chegam centenas de pedidos no mesmo segundo. A abordagem habitual (ler os lugares livres, verificar e gravar) deixa uma janela em que dois pedidos reservam o mesmo lugar.",
+      en: "In a ticketing system, the critical moment is when sales open and hundreds of requests arrive in the same second. The usual approach (read the free seats, check, save) leaves a window where two requests book the same seat.",
     },
     work: {
-      pt: "Desenvolvi um tema à medida em PHP, HTML, CSS e JavaScript, responsivo e preparado para SEO, com secções que se configuram a partir do painel do WordPress.",
-      en: "I built a custom theme in PHP, HTML, CSS and JavaScript, responsive and SEO-ready, with sections that can be configured from the WordPress dashboard.",
+      pt: "Construí a API em ASP.NET Core (.NET 10) com SQL Server e o front-end em React com TypeScript. Cada reserva é um UPDATE condicional, que a base de dados executa de forma atómica. Nos voos, cada lugar é uma linha própria, reservada numa transação e sempre pela mesma ordem, para evitar deadlocks. O site tem ida e volta com escolha de lugar, um carrinho que junta voos e eventos, pagamento fictício e cartões de embarque com QR.",
+      en: "I built the API in ASP.NET Core (.NET 10) with SQL Server and the front end in React with TypeScript. Every booking is a conditional UPDATE that the database runs atomically. For flights, each seat is its own row, booked inside a transaction and always in the same order to avoid deadlocks. The site has round trips with seat selection, a cart that combines flights and events, a mock payment and boarding passes with a QR code.",
     },
     result: {
-      pt: "O projeto deu origem ao site da empresa, hoje em multimac.pt. Por razões de segurança, apresento aqui a minha versão do projeto e não o código da empresa.",
-      en: "The project became the company website, now at multimac.pt. For security reasons, I show my own version of the project here rather than the company's code.",
+      pt: "Os testes de integração correm contra um SQL Server real: 200 pedidos em simultâneo para 50 lugares resultam em exatamente 50 reservas, e de 40 pessoas a escolher o mesmo lugar só uma o consegue. A demo está no Azure e, por estar no plano gratuito, a primeira visita pode demorar até um minuto.",
+      en: "Integration tests run against a real SQL Server: 200 simultaneous requests for 50 seats result in exactly 50 bookings, and of 40 people choosing the same seat only one gets it. The demo runs on Azure and, because it is on the free tier, the first visit can take up to a minute.",
     },
-    tech: ["PHP", "WordPress", "JavaScript", "CSS"],
+    tech: [".NET 10", "ASP.NET Core", "SQL Server", "React", "TypeScript", "Docker"],
     image: {
-      src: "/projects/multimac.webp",
+      src: "/projects/skylane.webp",
       alt: {
-        pt: "Página inicial da versão de demonstração do tema Multimac",
-        en: "Home page of the Multimac theme demo",
+        pt: "Página inicial do Skylane, com a pesquisa de voos",
+        en: "Skylane home page with the flight search",
       },
     },
     size: "wide",
     links: {
-      demo: "https://multitech-portifolio.netlify.app/",
-      code: "https://github.com/Samrodrigues015/ProjetoMultimac",
-      original: "https://multimac.pt/",
+      demo: "https://skylane.blueisland-b99c3c8d.switzerlandnorth.azurecontainerapps.io",
+      code: "https://github.com/Samrodrigues015/Skylane",
     },
   },
   {
@@ -116,6 +115,41 @@ export const projects: Project[] = [
     },
     size: "narrow",
     links: { demo: "https://annylima.ovh/" },
+  },
+  {
+    id: "multimac",
+    name: "Multimac",
+    context: { pt: "Estágio · 2025", en: "Internship · 2025" },
+    summary: {
+      pt: "Tema WordPress à medida para o site institucional da empresa.",
+      en: "Custom WordPress theme for the company website.",
+    },
+    problem: {
+      pt: "A Multimac precisava de um site institucional em WordPress que apresentasse as suas soluções com clareza e fosse simples de manter.",
+      en: "Multimac needed a WordPress company website that presented its solutions clearly and was simple to maintain.",
+    },
+    work: {
+      pt: "Desenvolvi um tema à medida em PHP, HTML, CSS e JavaScript, responsivo e preparado para SEO, com secções que se configuram a partir do painel do WordPress.",
+      en: "I built a custom theme in PHP, HTML, CSS and JavaScript, responsive and SEO-ready, with sections that can be configured from the WordPress dashboard.",
+    },
+    result: {
+      pt: "O projeto deu origem ao site da empresa, hoje em multimac.pt. Por razões de segurança, apresento aqui a minha versão do projeto e não o código da empresa.",
+      en: "The project became the company website, now at multimac.pt. For security reasons, I show my own version of the project here rather than the company's code.",
+    },
+    tech: ["PHP", "WordPress", "JavaScript", "CSS"],
+    image: {
+      src: "/projects/multimac.webp",
+      alt: {
+        pt: "Página inicial da versão de demonstração do tema Multimac",
+        en: "Home page of the Multimac theme demo",
+      },
+    },
+    size: "wide",
+    links: {
+      demo: "https://multitech-portifolio.netlify.app/",
+      code: "https://github.com/Samrodrigues015/ProjetoMultimac",
+      original: "https://multimac.pt/",
+    },
   },
   {
     id: "dualinfor",
